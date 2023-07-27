@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling>=1.11.0", "hatch-requirements-txt"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kube-connector"
+version = "0.1.0.dev"
+description = "Multi-cloud Kubernetes network and management tool"
+authors = [
+  {name="Ali Jawad Fahs", email="ali.fahs@activeeon.com"},
+]
+readme = "README.md"
+license = "MPL-2.0"
+# keywords = [""]
+dynamic = ["dependencies"]
+requires-python = ">=3.9"
+
+[project.scripts]
+kube-connector = "kube_connector.main:main"
+
+[project.urls]
+# Homepage = ""
+# Documentation = ""
+
+[tool.hatch]
+build.packages = ["kube_connector"]
+
+[tool.hatch.metadata.hooks.requirements_txt]
+files = ["requirements.txt"]
+
+[tool.black]
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.isort]
+profile = "black"
+line_length = 100
+py_version = 39
